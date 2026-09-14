@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MT-Projects | منصة مشاريع التخرج والهندسة</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --primary-color: #238636;
+            --accent-color: #58a6ff;
+            --text-color: #f0f6fc;
+            --text-secondary: #8b949e;
+            --border-color: #30363d;
+            --whatsapp-color: #25d366;
+            --facebook-color: #1877f2;
+            --instagram-color: #e4405f;
+
+            /* Category Colors */
+            --cat-arduino: #00979d;
+            --cat-iot: #e36049;
+            --cat-robotics: #d97706;
+            --cat-ai: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: rgba(22, 27, 34, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        /* تعديل حجم اللوجو وإزالة الإطار */
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: contain;
+            border: none;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-color);
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--accent-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        .social-fb { background-color: var(--facebook-color); }
+        .social-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebc57;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3.5rem 2rem 2rem;
+            background: radial-gradient(circle at top, #1f293d 0%, var(--bg-color) 70%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Stats Section */
+        .stats-container {
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Search & Filters Section */
+        .search-filter-section {
+            max-width: 1200px;
+            margin: 0 auto 1.5rem;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 45px 14px 16px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            color: var(--text-color);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .controls-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filters-container {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--accent-color);
+            color: #000;
+            border-color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .sort-select {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 8px;
+            outline: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            border-color: var(--accent-color);
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #2ea043;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #2ea043;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 160, 67, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 160, 67, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 160, 67, 0); }
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-tag {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .tag-arduino { background-color: var(--cat-arduino); }
+        .tag-iot { background-color: var(--cat-iot); }
+        .tag-robotics { background-color: var(--cat-robotics); }
+        .tag-ai { background-color: var(--cat-ai); }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .deliverables {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .deliverables-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .deliverables ul {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .deliverables li {
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .deliverables li i {
+            color: var(--primary-color);
+        }
+
+        .project-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .price-tag {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #2ea043;
+        }
+
+        .price-tag span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 6px;
+        }
+
+        .btn-action-icon {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-action-icon:hover {
+            background-color: var(--border-color);
+            color: var(--accent-color);
+        }
+
+        /* Read More Section */
+        .load-more-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .btn-load-more {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-load-more:hover {
+            background-color: var(--accent-color);
+            color: #000;
+            border-color: var(--accent-color);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 900px;
+            margin: 4rem auto 2rem;
+            padding: 0 2rem;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1rem 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: none;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 1rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Modal (Popup) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            max-width: 600px;
+            width: 100%;
+            padding: 2rem;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            display: none;
+            z-index: 3000;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .projects-container { grid-template-columns: 1fr; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .stats-container { grid-template-columns: 1fr; }
+            .controls-row { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-container">
+                <img src="logo.png" onerror="this.src='https://via.placeholder.com/60x60/238636/ffffff?text=MT'" alt="MT-Projects Logo" class="logo-img">
+                <div class="logo-text">MT-<span>PROJECTS</span></div>
+            </a>
+            
+            <div class="nav-actions">
+                <a href="https://www.facebook.com/share/1FDnTubg9i/" target="_blank" class="social-link social-fb" title="تابعنا على فيسبوك">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/mt_company40?stkn=MTRxdmZ1bXdlMmYyNg==" target="_blank" class="social-link social-insta" title="تابعنا على انستجرام">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/201128304396" target="_blank" class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> تواصل معنا
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>منصة <span>MT-Projects</span> لمشاريع الهندسة الجاهزة</h1>
+        <p>احصل على مشروعك الهندسي متكامل ومجهّز للتسليم الفوري شامل: الكود المصدر، مخططات التوصيل، وملف PDF يحتوي على الشرح والتحليل المباشر.</p>
+        
+        <!-- Stats Counter -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">+50</div>
+                <div class="stat-label">مشروع جاهز</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">+300</div>
+                <div class="stat-label">طالب مستفيد</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">تسليم فوري</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filters Section -->
+    <div class="search-filter-section">
+        <!-- Search Box -->
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="searchInput" class="search-input" placeholder="ابحث باسم المشروع أو التخصص (مثال: Arduino, AI, ري ذكي...)" oninput="handleSearch()">
+        </div>
+
+        <!-- Controls Row (Filters + Sort) -->
+        <div class="controls-row">
+            <div class="filters-container">
+                <button class="filter-btn active" onclick="filterProjects('all', event)">الكل</button>
+                <button class="filter-btn" onclick="filterProjects('arduino', event)">Arduino</button>
+                <button class="filter-btn" onclick="filterProjects('iot', event)">IoT</button>
+                <button class="filter-btn" onclick="filterProjects('robotics', event)">Robotics</button>
+                <button class="filter-btn" onclick="filterProjects('ai', event)">AI</button>
+            </div>
+
+            <!-- Sort Option -->
+            <select class="sort-select" onchange="handleSort(this.value)">
+                <option value="default">الترتيب الافتراضي</option>
+                <option value="low-high">السعر: من الأقل للأعلى</option>
+                <option value="high-low">السعر: من الأعلى للأقل</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <section class="projects-container" id="projects-grid"></section>
+
+    <!-- Load More / Read More Button -->
+    <div class="load-more-container" id="loadMoreContainer">
+        <button class="btn-load-more" onclick="loadMoreProjects()">عرض المزيد من المشاريع <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+
+    <!-- FAQ Accordion Section -->
+    <section class="faq-section">
+        <h2 class="faq-title">الأسئلة الشائعة ❓</h2>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                <span>كيف يتم استلام الملفات بعد الشراء؟</span>
+                <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+                بمجرد الضغط على زر الشراء والتواصل معنا عبر واتساب، يتم إرسال رابط مباشر يحتوي على ملفات المشروع (Code + Schematics + PDF) فور تأكيد الدفع.
+            </div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                <span>هل تشمل المشاريع شرحاً لطريقة التشغيل؟</span>
+                <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+                نعم، كل مشروع يحتوي على ملف PDF موثق يوضح مكونات النظام، طريقة التوصيل خطوة بخطوة، مع شرح لمراحل عمل الكود المصدر.
+            </div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                <span>ما هي طرق الدفع المتاحة؟</span>
+                <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+                نوفر طرق دفع متعددة وسريعة مثل (فودافون كاش - Vodafone Cash) والحوالات البنكية المباشرة.
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal التفاصيل -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle" style="margin-bottom: 1rem; color: var(--accent-color);"></h2>
+            <img id="modalImg" src="" alt="" style="width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+            <p id="modalDesc" style="margin-bottom: 1.5rem; color: var(--text-color);"></p>
+            <div class="deliverables" style="margin-bottom: 1.5rem;">
+                <div class="deliverables-title">محتويات ملف الاستلام:</div>
+                <ul>
+                    <li><i class="fa-solid fa-check-circle"></i> الكود البرمجي (Source Code)</li>
+                    <li><i class="fa-solid fa-check-circle"></i> خريطة التوصيل (Schematics)</li>
+                    <li><i class="fa-solid fa-check-circle"></i> ملف PDF شامل الوصف وخطوات التشغيل</li>
+                </ul>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div id="modalPrice" class="price-tag"></div>
+                <a id="modalBuyBtn" href="#" target="_blank" class="btn-whatsapp" style="padding: 10px 20px;">
+                    <i class="fa-brands fa-whatsapp"></i> تأكيد الشراء واستلام المشروع
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Alert -->
+    <div class="toast" id="toastNotification">تم نسخ رابط المشروع!</div>
+
+    <!-- Footer -->
+    <footer>
+        <p>جميع الحقوق محفوظة © لـ <strong>MT-Projects</strong> | منصة المشاريع الهندسية الجاهزة</p>
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/share/1FDnTubg9i/" target="_blank" class="social-link social-fb"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/mt_company40?stkn=MTRxdmZ1bXdlMmYyNg==" target="_blank" class="social-link social-insta"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/201128304396" target="_blank" class="social-link" style="background-color: var(--whatsapp-color);"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const PHONE_NUMBER = "201128304396";
+        const ITEMS_PER_PAGE = 3;
+        let currentPage = 1;
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let currentSort = 'default';
+
+        const projects = [
+            {
+                id: 1,
+                title: "نظام ري ذكي بالآردوينو (Arduino Smart Irrigation)",
+                category: "arduino",
+                price: 350,
+                image: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600&q=80",
+                shortDesc: "قياس رطوبة التربة والتحكم في مضخة المياه تلقائياً مع عرض البيانات على شاشة LCD.",
+                fullDesc: "مشروع آردوينو عملي يعتمد على لوحة Arduino Uno وحساس رطوبة التربة وموديول ريليه للتحكم بمضخة المياه وشاشة LCD 16x2."
+            },
+            {
+                id: 2,
+                title: "نظام المنزل الذكي (Smart Home IoT)",
+                category: "iot",
+                price: 450,
+                image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80",
+                shortDesc: "تحكم كامل بالأجهزة وتتبع درجات الحرارة والغاز عبر الإنترنت وتطبيق الموبايل باستخدام ESP32.",
+                fullDesc: "مشروع IoT كامل يعتمد على متحكم ESP32 مرتبط بسحابة برمجية وتطبيق على الهاتف. يتضمن تحكماً في الإضاءة والأجهزة وتنبيهات تسريب الغاز."
+            },
+            {
+                id: 3,
+                title: "ذراع روبوتية وتتبع حركة اليد (Hand Gesture Robot)",
+                category: "robotics",
+                price: 600,
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80",
+                shortDesc: "روبوت ذراع ذكي يتحرك متزامناً مع حركة يد المستخدم باستخدام حساسات التسارع ومحركات السيرفو.",
+                fullDesc: "مشروع روبوتات متميز يتكون من ذراع ذات 4 درجات حرية (4-DOF) يتم توجيهها لاسلكياً بواسطة قفاز ذكي مثبت عليه حساسات الحركة."
+            },
+            {
+                id: 4,
+                title: "نظام كشف الحضور والوجوه بالذكاء الاصطناعي (AI Attendance)",
+                category: "ai",
+                price: 500,
+                image: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=600&q=80",
+                shortDesc: "نموذج تعلم آلي للتعرف على وجوه الطلاب وتوثيق الحضور تلقائياً في قاعدة بيانات.",
+                fullDesc: "مشروع AI يعتمد على رؤية الحاسوب (Computer Vision) باستخدام Python و OpenCV للتعرف على الوجوه وتخزين الحضور في Excel."
+            },
+            {
+                id: 5,
+                title: "نظام إنذار وحماية بالـ RFID والآردوينو",
+                category: "arduino",
+                price: 380,
+                image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80",
+                shortDesc: "فتح الأبواب والتحكم بالوصول باستخدام كروت RFID ومحرك سيرفو مع بوزر إنذار.",
+                fullDesc: "مشروع حماية بالآردوينو باستخدام قارئ RFID RC522 ومحرك Servo لتأمين البوابات الإلكترونية وإدارة الصلاحيات."
+            },
+            {
+                id: 6,
+                title: "محطة أرصاد جوية متكاملة (IoT Weather Station)",
+                category: "iot",
+                price: 400,
+                image: "https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&w=600&q=80",
+                shortDesc: "رصد حالة الجو والضغط الجوي ونسبة الرطوبة ورفع البيانات لموقع إلكتروني مباشر.",
+                fullDesc: "مشروع إنترنت الأشياء لرصد حالة البيئة والطقس بشكل مستمر وعرض النتائج على شاشة OLED ورفعها لسحابة ThingSpeak."
+            }
+        ];
+
+        function getFilteredProjects() {
+            let result = projects.filter(project => {
+                let matchesCat = (currentCategory === 'all') || (project.category.toLowerCase() === currentCategory.toLowerCase());
+
+                const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                      project.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                      project.shortDesc.toLowerCase().includes(searchQuery.toLowerCase());
+
+                return matchesCat && matchesSearch;
+            });
+
+            if (currentSort === 'low-high') {
+                result.sort((a, b) => a.price - b.price);
+            } else if (currentSort === 'high-low') {
+                result.sort((a, b) => b.price - a.price);
+            }
+
+            return result;
+        }
+
+        function renderProjects() {
+            const container = document.getElementById('projects-grid');
+            const filtered = getFilteredProjects();
+            const visibleProjects = filtered.slice(0, currentPage * ITEMS_PER_PAGE);
+
+            container.innerHTML = '';
+
+            if (visibleProjects.length === 0) {
+                container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-secondary);">لا توجد مشاريع تطابق البحث أو الفلتر الحالي.</div>`;
+                document.getElementById('loadMoreContainer').style.display = 'none';
+                return;
+            }
+
+            visibleProjects.forEach(project => {
+                const message = encodeURIComponent(`أهلاً MT-Projects، حابب أشتري مشروع:\n📌 *${project.title}*\n💰 السعر: ${project.price} ج.م`);
+                const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${message}`;
+
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <div class="live-badge"><div class="pulse-dot"></div> جاهز للتحميل</div>
+                    <img src="${project.image}" alt="${project.title}" class="project-img">
+                    <div class="project-body">
+                        <span class="project-tag tag-${project.category}">${project.category.toUpperCase()}</span>
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-desc">${project.shortDesc}</p>
+                        
+                        <div class="deliverables">
+                            <div class="deliverables-title">محتويات التسليم:</div>
+                            <ul>
+                                <li><i class="fa-solid fa-code"></i> الكود المصدر</li>
+                                <li><i class="fa-solid fa-diagram-project"></i> التوصيلات</li>
+                                <li><i class="fa-solid fa-file-pdf"></i> ملف الوصف PDF</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-footer">
+                            <div class="price-tag">${project.price} <span>ج.م</span></div>
+                            <div class="btn-group">
+                                <button class="btn-action-icon" onclick="shareProject('${project.title}')" title="مشاركة">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </button>
+                                <button class="btn-action-icon" onclick="openModal(${project.id})" title="التفاصيل">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                                <a href="${whatsappUrl}" target="_blank" class="btn-whatsapp">
+                                    <i class="fa-brands fa-whatsapp"></i> شراء
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            document.getElementById('loadMoreContainer').style.display = (visibleProjects.length < filtered.length) ? 'block' : 'none';
+        }
+
+        function shareProject(title) {
+            navigator.clipboard.writeText(`شاهد هذا المشروع الهندسي المتميز من MT-Projects:\n${title}\n${window.location.href}`);
+            showToast("تم نسخ رابط المشاركة بنجاح!");
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toastNotification');
+            toast.innerText = msg;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 3000);
+        }
+
+        function handleSearch() {
+            searchQuery = document.getElementById('searchInput').value.trim();
+            currentPage = 1;
+            renderProjects();
+        }
+
+        function filterProjects(category, event) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) event.target.classList.add('active');
+            currentCategory = category;
+            currentPage = 1;
+            renderProjects();
+        }
+
+        function handleSort(value) {
+            currentSort = value;
+            renderProjects();
+        }
+
+        function loadMoreProjects() {
+            currentPage++;
+            renderProjects();
+        }
+
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+        }
+
+        function openModal(id) {
+            const project = projects.find(p => p.id === id);
+            if (!project) return;
+
+            document.getElementById('modalTitle').innerText = project.title;
+            document.getElementById('modalImg').src = project.image;
+            document.getElementById('modalDesc').innerText = project.fullDesc;
+            document.getElementById('modalPrice').innerHTML = `${project.price} <span>ج.م</span>`;
+            
+            const message = encodeURIComponent(`أهلاً MT-Projects، أرغب بشراء مشروع:\n📌 *${project.title}*\n💰 السعر: ${project.price} ج.م`);
+            document.getElementById('modalBuyBtn').href = `https://wa.me/${PHONE_NUMBER}?text=${message}`;
+
+            document.getElementById('projectModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target == modal) closeModal();
+        }
+
+        renderProjects();
+    </script>
+</body>
+</html>
