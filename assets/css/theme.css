@@ -141,6 +141,19 @@ section { scroll-margin-top: 90px; }
 .tech-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.3rem; }
 .tech-chip { background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.85rem; font-size: 0.85rem; font-weight: 600; color: var(--body); }
 
+/* =========================== Work samples gallery =========================== */
+.gallery-head { margin: 2.75rem 0 1.3rem; }
+.gallery-head h3 { font-size: 1.3rem; font-weight: 800; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
+.sample { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s; }
+.sample:hover { transform: translateY(-4px); border-color: var(--gold-line); box-shadow: var(--shadow); }
+.sample-media { position: relative; height: 180px; overflow: hidden; }
+.sample-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.sample:hover .sample-media img { transform: scale(1.05); }
+.sample-media .cat { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.94); color: var(--gold-deep); font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; box-shadow: var(--shadow-sm); }
+.sample .cap { padding: 0.9rem 1rem; }
+.sample .cap h4 { font-size: 1rem; font-weight: 700; }
+
 /* =========================== Process =========================== */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; counter-reset: step; }
 .step { position: relative; padding-top: 0.5rem; }

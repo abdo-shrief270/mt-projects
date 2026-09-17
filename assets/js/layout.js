@@ -6,9 +6,8 @@
     const page = document.body.dataset.page || "home";
     const links = [
         { key: "home", href: "index.html", i18n: "nav.home" },
-        { key: "services", href: "index.html#services", i18n: "nav.services" },
-        { key: "projects", href: "projects.html", i18n: "nav.projects" },
-        { key: "courses", href: "courses.html", i18n: "nav.courses" },
+        { key: "elv", href: "index.html#elv", i18n: "nav.elv" },
+        { key: "software", href: "index.html#software", i18n: "nav.software" },
         { key: "about", href: "about.html", i18n: "nav.about" },
     ];
     const navLinks = links
@@ -51,10 +50,8 @@
         </div>
         <div class="footer-col">
           <h4 data-i18n="foot.servicesTitle"></h4>
-          <a href="projects.html" data-i18n="foot.projects"></a>
           <a href="index.html#elv" data-i18n="foot.elv"></a>
           <a href="index.html#software" data-i18n="foot.software"></a>
-          <a href="courses.html" data-i18n="foot.courses"></a>
           <a href="about.html" data-i18n="foot.about"></a>
         </div>
         <div class="footer-col">
