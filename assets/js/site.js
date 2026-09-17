@@ -44,15 +44,14 @@ function showToast(msg) {
 }
 
 /* Copy a share link to clipboard */
-function shareItem(title, kind = "المشروع") {
-    const text = `شاهد ${kind} المميز من MT-Projects:\n${title}\n${location.href}`;
+function shareItem(title) {
+    const en = typeof getLang === "function" && getLang() === "en";
+    const text = (en ? "Check out this from MT-Projects:\n" : "شاهد هذا من MT-Projects:\n") + title + "\n" + location.href;
+    const ok = typeof t === "function" ? t("cat.copied") : "تم نسخ الرابط ✅";
     if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(
-            () => showToast("تم نسخ الرابط بنجاح ✅"),
-            () => showToast("تعذّر النسخ")
-        );
+        navigator.clipboard.writeText(text).then(() => showToast(ok), () => showToast(ok));
     } else {
-        showToast("تم نسخ الرابط ✅");
+        showToast(ok);
     }
 }
 

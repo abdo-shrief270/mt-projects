@@ -1,24 +1,23 @@
 /* =====================================================================
-   MT-Projects — shared header + footer injector.
-   Keeps every page in sync. Set <body data-page="projects"> for active nav.
+   MT-Projects — shared header + footer injector (bilingual).
+   Text uses data-i18n keys; i18n.js fills them. Set <body data-page="…">.
    ===================================================================== */
 (function () {
     const page = document.body.dataset.page || "home";
     const links = [
-        { key: "home", href: "index.html", label: "الرئيسية" },
-        { key: "services", href: "index.html#services", label: "خدماتنا" },
-        { key: "projects", href: "projects.html", label: "المشاريع" },
-        { key: "courses", href: "courses.html", label: "الكورسات" },
-        { key: "about", href: "about.html", label: "من نحن" },
+        { key: "home", href: "index.html", i18n: "nav.home" },
+        { key: "services", href: "index.html#services", i18n: "nav.services" },
+        { key: "projects", href: "projects.html", i18n: "nav.projects" },
+        { key: "courses", href: "courses.html", i18n: "nav.courses" },
+        { key: "about", href: "about.html", i18n: "nav.about" },
     ];
-
     const navLinks = links
-        .map((l) => `<a href="${l.href}" class="${l.key === page ? "active" : ""}">${l.label}</a>`)
+        .map((l) => `<a href="${l.href}" class="${l.key === page ? "active" : ""}" data-i18n="${l.i18n}"></a>`)
         .join("");
 
     const socials = `
-        <a href="${MT.facebook}" target="_blank" rel="noopener" class="social-btn" title="فيسبوك"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="${MT.instagram}" target="_blank" rel="noopener" class="social-btn" title="انستجرام"><i class="fa-brands fa-instagram"></i></a>`;
+        <a href="${MT.facebook}" target="_blank" rel="noopener" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="${MT.instagram}" target="_blank" rel="noopener" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>`;
 
     const header = `
     <header class="site-header">
@@ -29,9 +28,10 @@
         </a>
         <nav class="nav-links" id="navLinks">${navLinks}</nav>
         <div class="nav-actions">
+          <button id="langToggle" class="social-btn" onclick="toggleLang()" title="Language" style="font-weight:800;font-size:0.82rem;">EN</button>
           ${socials}
-          <a href="${waLink("أهلاً MT-Projects، أرغب في الاستفسار 👋")}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm"><i class="fa-brands fa-whatsapp"></i> تواصل معنا</a>
-          <button class="nav-toggle" aria-label="القائمة" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></button>
+          <a href="${waLink("MT-Projects 👋")}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" data-i18n="nav.contactBtn"></a>
+          <button class="nav-toggle" aria-label="menu" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></button>
         </div>
       </div>
     </header>`;
@@ -44,29 +44,29 @@
             <img src="logo.png" alt="MT-Projects" onerror="this.style.display='none'">
             <span class="brand-text">MT<span>-Projects</span></span>
           </a>
-          <p>فريق هندسي وبرمجي ينفّذ مشاريع التخرّج، أنظمة التيار الخفيف، الحلول البرمجية، والكورسات العملية — للطلاب والشركات.</p>
+          <p data-i18n="foot.blurb"></p>
           <div class="footer-socials">${socials}
-            <a href="${waLink("أهلاً MT-Projects 👋")}" target="_blank" rel="noopener" class="social-btn" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="${waLink("MT-Projects 👋")}" target="_blank" rel="noopener" class="social-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
         <div class="footer-col">
-          <h4>خدماتنا</h4>
-          <a href="projects.html">المشاريع الجاهزة</a>
-          <a href="index.html#elv">أنظمة التيار الخفيف</a>
-          <a href="index.html#software">الحلول البرمجية</a>
-          <a href="courses.html">الكورسات التعليمية</a>
-          <a href="about.html">من نحن</a>
+          <h4 data-i18n="foot.servicesTitle"></h4>
+          <a href="projects.html" data-i18n="foot.projects"></a>
+          <a href="index.html#elv" data-i18n="foot.elv"></a>
+          <a href="index.html#software" data-i18n="foot.software"></a>
+          <a href="courses.html" data-i18n="foot.courses"></a>
+          <a href="about.html" data-i18n="foot.about"></a>
         </div>
         <div class="footer-col">
-          <h4>تواصل معنا</h4>
-          <div class="line"><i class="fa-brands fa-whatsapp"></i> واتساب: +20 112 830 4396</div>
-          <div class="line"><i class="fa-brands fa-facebook-f"></i> فيسبوك: MT-Projects</div>
-          <div class="line"><i class="fa-brands fa-instagram"></i> انستجرام: mt_company40</div>
-          <div class="line"><i class="fa-solid fa-bolt"></i> تسليم فوري بعد تأكيد الدفع</div>
+          <h4 data-i18n="foot.contactTitle"></h4>
+          <div class="line"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="foot.wa"></span></div>
+          <div class="line"><i class="fa-brands fa-facebook-f"></i> <span data-i18n="foot.fb"></span></div>
+          <div class="line"><i class="fa-brands fa-instagram"></i> <span data-i18n="foot.ig"></span></div>
+          <div class="line"><i class="fa-solid fa-bolt"></i> <span data-i18n="foot.delivery"></span></div>
         </div>
       </div>
       <div class="footer-bottom">
-        جميع الحقوق محفوظة © <span data-year></span> <strong>MT-Projects</strong> — منصة المشاريع والكورسات الهندسية
+        <span data-i18n="foot.rights"></span> <span data-year></span> <strong>MT-Projects</strong> — <span data-i18n="foot.tagline"></span>
       </div>
     </footer>`;
 
@@ -74,4 +74,6 @@
     const f = document.getElementById("site-footer");
     if (h) h.outerHTML = header;
     if (f) f.outerHTML = footer;
+
+    if (typeof initI18n === "function") initI18n();
 })();
