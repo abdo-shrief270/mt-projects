@@ -6,6 +6,7 @@
     const page = document.body.dataset.page || "home";
     const links = [
         { key: "home", href: "index.html", label: "الرئيسية" },
+        { key: "services", href: "index.html#services", label: "خدماتنا" },
         { key: "projects", href: "projects.html", label: "المشاريع" },
         { key: "courses", href: "courses.html", label: "الكورسات" },
         { key: "about", href: "about.html", label: "من نحن" },
@@ -43,15 +44,16 @@
             <img src="logo.png" alt="MT-Projects" onerror="this.style.display='none'">
             <span class="brand-text">MT<span>-Projects</span></span>
           </a>
-          <p>منصة هندسية متكاملة توفّر مشاريع تخرّج جاهزة، كورسات تعليمية، وحلول إلكترونية مخصّصة للطلاب والمهندسين.</p>
+          <p>فريق هندسي وبرمجي ينفّذ مشاريع التخرّج، أنظمة التيار الخفيف، الحلول البرمجية، والكورسات العملية — للطلاب والشركات.</p>
           <div class="footer-socials">${socials}
             <a href="${waLink("أهلاً MT-Projects 👋")}" target="_blank" rel="noopener" class="social-btn" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
         <div class="footer-col">
-          <h4>روابط سريعة</h4>
-          <a href="index.html">الرئيسية</a>
+          <h4>خدماتنا</h4>
           <a href="projects.html">المشاريع الجاهزة</a>
+          <a href="index.html#elv">أنظمة التيار الخفيف</a>
+          <a href="index.html#software">الحلول البرمجية</a>
           <a href="courses.html">الكورسات التعليمية</a>
           <a href="about.html">من نحن</a>
         </div>
