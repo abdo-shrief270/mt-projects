@@ -206,6 +206,7 @@ const DICT = {
     "ab.story.h2": ["من ورشة صغيرة إلى شريك للشركات", "From a small workshop to a partner for businesses"],
     "ab.story.p1": ["بدأت MT-Company من شغف بالإلكترونيات والبرمجة، وقدرة على تحويل الأفكار إلى أنظمة تعمل على أرض الواقع لا مجرد رسومات على الورق.", "MT-Company began with a passion for electronics and software, and a knack for turning ideas into systems that actually work — not just drawings on paper."],
     "ab.story.p2": ["مع الوقت كبر الفريق وتوسّعت الخدمات، حتى صرنا نخدم الشركات والمؤسسات في أنظمة التيار الخفيف والحلول البرمجية، بنفس الاهتمام بالتفاصيل الذي بدأنا به.", "Over time the team grew and our services expanded, until we now serve companies and organizations in low-current systems and software — with the same attention to detail we started with."],
+    "ab.story.founded": ["تأسست سنة 2023 على يد محمود الطوخي", "Founded in 2023 by Mahmoud Eltoukhy"],
     "ab.mission.kicker": ["الرسالة والرؤية", "Mission & Vision"],
     "ab.mission.h2": ["نحو شريك تقني تثق به", "Toward a tech partner you can trust"],
     "ab.mission.mTitle": ["رسالتنا", "Our Mission"],
