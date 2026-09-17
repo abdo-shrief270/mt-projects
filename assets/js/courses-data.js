@@ -1,4 +1,4 @@
-/* MT-Projects — courses catalog data (bilingual, sample content).
+/* MT-Company — courses catalog data (bilingual, sample content).
    cat ∈ beginner | intermediate | advanced (drives filter + tag colour). */
 const COURSES = [
     {

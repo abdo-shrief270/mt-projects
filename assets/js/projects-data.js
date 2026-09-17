@@ -1,4 +1,4 @@
-/* MT-Projects — projects catalog data (bilingual).
+/* MT-Company — projects catalog data (bilingual).
    cat ∈ arduino | iot | robotics | ai (drives filter + tag colour).
    *_en fields are used when the site language is English. */
 const PROJECTS = [

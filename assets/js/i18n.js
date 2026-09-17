@@ -1,5 +1,5 @@
 /* =====================================================================
-   MT-Projects — lightweight bilingual (ar / en) engine.
+   MT-Company — lightweight bilingual (ar / en) engine.
    Static text carries data-i18n / data-i18n-ph / data-i18n-title.
    Dynamic content (catalog) reads getLang() + *_en data fields.
    Fires window event "mt:lang" on change so renderers can refresh.
@@ -22,7 +22,7 @@ const DICT = {
     "foot.about": ["من نحن", "About Us"],
     "foot.contactTitle": ["تواصل معنا", "Get in Touch"],
     "foot.wa": ["واتساب: ‎+20 112 830 4396", "WhatsApp: +20 112 830 4396"],
-    "foot.fb": ["فيسبوك: MT-Projects", "Facebook: MT-Projects"],
+    "foot.fb": ["فيسبوك: MT-Company", "Facebook: MT-Company"],
     "foot.ig": ["انستجرام: mt_company40", "Instagram: mt_company40"],
     "foot.delivery": ["تسليم فوري بعد تأكيد الدفع", "Instant delivery after payment"],
     "foot.rights": ["جميع الحقوق محفوظة ©", "All rights reserved ©"],
@@ -185,7 +185,7 @@ const DICT = {
     /* ---- about page ---- */
     "ab.hero.kicker": ["من نحن", "About us"],
     "ab.hero.h1": ["ننفّذ، نُركّب، ونبرمج — بفريق واحد", "We build, install & code — as one team"],
-    "ab.hero.lead": ["MT-Projects بدأت من شغف بالإلكترونيات والبرمجة، وكبرت لتصبح فريقاً يقدّم خدمات متكاملة: مشاريع هندسية جاهزة، أنظمة تيار خفيف، حلول برمجية، وكورسات عملية — للطلاب والشركات على حدّ سواء.", "MT-Projects grew from a passion for electronics and software into a team offering complete services: ready-made engineering projects, low-current systems, software solutions, and hands-on courses — for students and businesses alike."],
+    "ab.hero.lead": ["MT-Company بدأت من شغف بالإلكترونيات والبرمجة، وكبرت لتصبح فريقاً يقدّم خدمات متكاملة: مشاريع هندسية جاهزة، أنظمة تيار خفيف، حلول برمجية، وكورسات عملية — للطلاب والشركات على حدّ سواء.", "MT-Company grew from a passion for electronics and software into a team offering complete services: ready-made engineering projects, low-current systems, software solutions, and hands-on courses — for students and businesses alike."],
     "ab.cta1": ["شاهد أعمالنا", "See our work"],
     "ab.cta2": ["تواصل معنا", "Contact us"],
     "ab.story.kicker": ["قصتنا", "Our story"],

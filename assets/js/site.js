@@ -1,5 +1,5 @@
 /* =====================================================================
-   MT-Projects — shared site behaviour
+   MT-Company — shared site behaviour
    Single source of truth for contact info + reusable UI helpers.
    ===================================================================== */
 
@@ -46,7 +46,7 @@ function showToast(msg) {
 /* Copy a share link to clipboard */
 function shareItem(title) {
     const en = typeof getLang === "function" && getLang() === "en";
-    const text = (en ? "Check out this from MT-Projects:\n" : "شاهد هذا من MT-Projects:\n") + title + "\n" + location.href;
+    const text = (en ? "Check out this from MT-Company:\n" : "شاهد هذا من MT-Company:\n") + title + "\n" + location.href;
     const ok = typeof t === "function" ? t("cat.copied") : "تم نسخ الرابط ✅";
     if (navigator.clipboard) {
         navigator.clipboard.writeText(text).then(() => showToast(ok), () => showToast(ok));

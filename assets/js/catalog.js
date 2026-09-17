@@ -1,5 +1,5 @@
 /* =====================================================================
-   MT-Projects — generic catalog engine (bilingual).
+   MT-Company — generic catalog engine (bilingual).
    Powers Projects and Courses pages. Reads localized fields via L() and
    static labels via t(); re-renders on the "mt:lang" event.
    ===================================================================== */
@@ -50,7 +50,7 @@ const Catalog = (() => {
     function waMsg(it) {
         const en = getLang() === "en";
         const noun = cfg.type === "course" ? (en ? "the course" : "الكورس") : (en ? "the project" : "المشروع");
-        const line = en ? `Hi MT-Projects, I'm interested in ${noun}:` : `أهلاً MT-Projects، مهتم بـ${noun}:`;
+        const line = en ? `Hi MT-Company, I'm interested in ${noun}:` : `أهلاً MT-Company، مهتم بـ${noun}:`;
         const price = en ? `Price: ${it.price} EGP` : `السعر: ${it.price} ج.م`;
         return `${line}\n📌 ${L(it, "title")}\n💰 ${price}`;
     }
@@ -60,7 +60,7 @@ const Catalog = (() => {
             <div class="card-media">
                 <div class="ribbon"><span class="dot"></span> ${t(cfg.ribbonKey)}</div>
                 <img src="${it.image}" alt="${L(it, "title")}" loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/600x400/f6f7f9/b9790c?text=MT-Projects'">
+                     onerror="this.src='https://via.placeholder.com/600x400/f6f7f9/b9790c?text=MT-Company'">
             </div>
             <div class="card-body">
                 <span class="tag tag-${it.cat}">${L(it, "tagLabel")}</span>

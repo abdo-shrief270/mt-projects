@@ -1,5 +1,5 @@
 /* =====================================================================
-   MT-Projects — shared header + footer injector (bilingual).
+   MT-Company — shared header + footer injector (bilingual).
    Text uses data-i18n keys; i18n.js fills them. Set <body data-page="…">.
    ===================================================================== */
 (function () {
@@ -23,14 +23,14 @@
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="brand">
-          <img src="logo.png" alt="MT-Projects" onerror="this.style.display='none'">
-          <span class="brand-text">MT<span>-Projects</span></span>
+          <img src="logo.png" alt="MT-Company" onerror="this.style.display='none'">
+          <span class="brand-text">MT<span>-Company</span></span>
         </a>
         <nav class="nav-links" id="navLinks">${navLinks}</nav>
         <div class="nav-actions">
           <button id="langToggle" class="social-btn" onclick="toggleLang()" title="Language" style="font-weight:800;font-size:0.82rem;">EN</button>
           ${socials}
-          <a href="${waLink("MT-Projects 👋")}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" data-i18n="nav.contactBtn"></a>
+          <a href="${waLink("MT-Company 👋")}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" data-i18n="nav.contactBtn"></a>
           <button class="nav-toggle" aria-label="menu" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></button>
         </div>
       </div>
@@ -41,12 +41,12 @@
       <div class="container footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="brand">
-            <img src="logo.png" alt="MT-Projects" onerror="this.style.display='none'">
-            <span class="brand-text">MT<span>-Projects</span></span>
+            <img src="logo.png" alt="MT-Company" onerror="this.style.display='none'">
+            <span class="brand-text">MT<span>-Company</span></span>
           </a>
           <p data-i18n="foot.blurb"></p>
           <div class="footer-socials">${socials}
-            <a href="${waLink("MT-Projects 👋")}" target="_blank" rel="noopener" class="social-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="${waLink("MT-Company 👋")}" target="_blank" rel="noopener" class="social-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
         <div class="footer-col">
@@ -66,7 +66,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span data-i18n="foot.rights"></span> <span data-year></span> <strong>MT-Projects</strong> — <span data-i18n="foot.tagline"></span>
+        <span data-i18n="foot.rights"></span> <span data-year></span> <strong>MT-Company</strong> — <span data-i18n="foot.tagline"></span>
       </div>
     </footer>`;
 
